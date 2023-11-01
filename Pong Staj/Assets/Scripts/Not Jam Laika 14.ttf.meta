@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: eadb80134b4ac3941a6fe7306c4b4bd2
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Not Jam Laika 14
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: fd8c1205800c11a41a7de5f73c53b817, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
