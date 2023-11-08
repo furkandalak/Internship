@@ -93,8 +93,8 @@ public class Player : MonoBehaviour
         {
             maxBullets -= 1;
             GameObject firedBullet = Instantiate(laserPrefab, transform.position, Quaternion.identity);
-            invaders.activeBullets.Add(firedBullet);
             spawnedBullets.Add(firedBullet);
+            invaders.activeBullets.Add(firedBullet);
         }
     }
     

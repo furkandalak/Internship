@@ -12,14 +12,15 @@ public class Collider : MonoBehaviour
 
     void Awake()
     {
-        width = GetComponent<SpriteRenderer>().bounds.size.y;
-        height = GetComponent<SpriteRenderer>().bounds.size.x;
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        width = GetComponent<SpriteRenderer>().bounds.size.y;
+        height = GetComponent<SpriteRenderer>().bounds.size.x;
+        position = transform.position;
     }
 
     // Update is called once per frame

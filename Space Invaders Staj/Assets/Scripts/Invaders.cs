@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEngine.SceneManagement;
 
 public class Invaders : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Invaders : MonoBehaviour
 
     public GameObject missilePrefab;
     public Player player;
+    Collider playerCollider;
     
     public int rows = 5;
 
@@ -30,6 +32,7 @@ public class Invaders : MonoBehaviour
 
     void Awake()
     {
+        playerCollider = player.GetComponent<Collider>();
         _spawnedInvaders = new GameObject[rows, columns];
         for (int row = rows - 1; row >= 0; row--)
         {
@@ -78,18 +81,27 @@ public class Invaders : MonoBehaviour
                 {
                     AdvanceRow(_spawnedInvaders[row, col]);
                 }
+
+                // Enemy ile Player testi
+                if (CheckColliderCollision(_spawnedInvaders[row, col].GetComponent<Collider>(), playerCollider))
+                {
+                    SceneManager.LoadScene("SpaceInvaders");
+                }
+
+                Collider _invaderHitbox = _spawnedInvaders[row, col].GetComponent<Collider>();
+                // Enemy ile Bullet testi
                 foreach (GameObject curBullet in activeBullets)
                 {
                     if (curBullet == null)
                     {
                         continue;
                     }
-                    bool test = CheckColliderCollision(_spawnedInvaders[row, col].GetComponent<Collider>(), curBullet.GetComponent<Collider>());
-                    if (test == true)
+                    bool hit = CheckColliderCollision(_invaderHitbox, curBullet.GetComponent<Collider>());
+                    if (hit == true)
                     {
-                        Destroy(_spawnedInvaders[row, col].gameObject);
                         Destroy(curBullet);
-                        activeBullets.Remove(curBullet);
+                        Destroy(_spawnedInvaders[row, col].gameObject);
+                        //activeBullets.Remove(curBullet);
                         break;
                     }
                 }
@@ -113,13 +125,13 @@ public class Invaders : MonoBehaviour
             {
                 if (_spawnedInvaders[row, col] == null)
                 {
-                    continue; // Osman'ın verdiği taktik ;)
+                    continue;
                 }
                 else
                 {
                     if (Random.value <= invaderAttackChance)
                     {
-                        GameObject missile = Instantiate(missilePrefab, _spawnedInvaders[row, col].transform);
+                        GameObject missile = Instantiate(missilePrefab, _spawnedInvaders[row, col].transform.position, Quaternion.identity);
                         player.currentEnemyMissiles.Add(missile);
                     }
                     break;
