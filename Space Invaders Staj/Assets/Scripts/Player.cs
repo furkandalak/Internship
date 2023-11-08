@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class Player : MonoBehaviour
 {
@@ -13,14 +15,18 @@ public class Player : MonoBehaviour
     public GameObject laserPrefab;
     public Invaders invaders;
 
+    Collider myHitbox;
+    
     public int maxBullets = 1;
 
     List<GameObject> spawnedBullets = new List<GameObject>();
+    public List<GameObject> currentEnemyMissiles = new List<GameObject>();
     
     void Awake()
     {
         leftEdge = Camera.main.ViewportToWorldPoint(Vector3.zero);
         rightEdge = Camera.main.ViewportToWorldPoint(Vector3.right);
+        myHitbox = gameObject.GetComponent<Collider>();
     }
     
     // Start is called before the first frame update
@@ -56,6 +62,21 @@ public class Player : MonoBehaviour
             Shoot();
         }
 
+        foreach (GameObject missile in currentEnemyMissiles)
+        {
+            if (missile == null)
+            {
+                continue;
+            }
+
+            if (CheckColliderCollision(myHitbox, missile.GetComponent<Collider>()))
+            {
+                Destroy(missile);
+                SceneManager.LoadScene("SpaceInvaders");
+                break;
+            }
+        }
+
 
     }
 
@@ -75,5 +96,13 @@ public class Player : MonoBehaviour
             invaders.activeBullets.Add(firedBullet);
             spawnedBullets.Add(firedBullet);
         }
+    }
+    
+    public bool CheckColliderCollision(Collider collider1, Collider collider2)
+    {
+        return (collider1.position.x - collider1.width/2 < collider2.position.x + collider2.width/2 &&
+                collider1.position.x + collider1.width/2 > collider2.position.x - collider2.width/2 &&
+                collider1.position.y - collider1.height/2 < collider2.position.y + collider2.height/2 &&
+                collider1.position.y + collider1.height/2 > collider2.position.y - collider2.height/2);
     }
 }

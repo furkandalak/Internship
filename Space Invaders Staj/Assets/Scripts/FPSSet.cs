@@ -15,7 +15,7 @@ public class FPSSet : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            Application.targetFrameRate = 15;
+            Application.targetFrameRate = 30;
         }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {

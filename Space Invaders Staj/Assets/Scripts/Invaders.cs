@@ -3,10 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Invaders : MonoBehaviour
 {
     public GameObject[] prefabs;
+
+    public GameObject missilePrefab;
+    public Player player;
     
     public int rows = 5;
 
@@ -14,15 +18,20 @@ public class Invaders : MonoBehaviour
 
     public float invaderSpacing = 2.0f;
     public float invaderAdvancing = 1.0f;
+
+    public float invaderAttackSpeed = 1.0f;
+    public float invaderAttackChance = 0.2f;
     
     public float speed = 10.0f;
     public Vector3 direction = Vector2.right;
 
     public List<GameObject> activeBullets;
-    
+    GameObject[,] _spawnedInvaders;
+
     void Awake()
     {
-        for (int row = 0; row < rows; row++)
+        _spawnedInvaders = new GameObject[rows, columns];
+        for (int row = rows - 1; row >= 0; row--)
         {
             float width = invaderSpacing * (this.columns - 1);
             float height = invaderSpacing * (this.rows - 1);
@@ -34,8 +43,10 @@ public class Invaders : MonoBehaviour
                 Vector3 position = rowPosition;
                 position.x += col * invaderSpacing;
                 invader.transform.localPosition = position;
+                _spawnedInvaders[row, col] = invader;
             }
         }
+        InvokeRepeating(nameof(InvaderShoot), invaderAttackSpeed, invaderAttackSpeed);
     }
     // Start is called before the first frame update
     void Start()
@@ -50,47 +61,71 @@ public class Invaders : MonoBehaviour
 
         Vector3 leftEdge = Camera.main.ViewportToWorldPoint(Vector3.zero); // Sonunda boundary bulmayı çözdük
         Vector3 rightEdge = Camera.main.ViewportToWorldPoint(Vector3.right);
-        
-        foreach (Transform invader in transform)
-        {
-            if (!invader.gameObject.activeInHierarchy)
-            {
-                continue; // Osman'ın verdiği taktik ;)
-            }
 
-            if (direction == Vector3.right && invader.position.x >= (rightEdge.x - invaderSpacing) )
+        for (int row = rows - 1; row >= 0; row--)
+        {
+            for (int col = 0; col < columns; col++)
             {
-                AdvanceRow();
-            }
-            else if (direction == Vector3.left && invader.position.x <= (leftEdge.x + invaderSpacing) )
-            {
-                AdvanceRow();
-            }
-            
-            foreach (GameObject curBullet in activeBullets)
-            {
-                if (curBullet == null)
+                if (_spawnedInvaders[row, col] == null)
                 {
-                    continue;
+                    continue; // Osman'ın verdiği taktik ;)
                 }
-                bool test = CheckColliderCollision(invader.GetComponent<Collider>(), curBullet.GetComponent<Collider>());
-                if (test == true)
+                if (direction == Vector3.right && _spawnedInvaders[row, col].transform.position.x >= (rightEdge.x - invaderSpacing) )
                 {
-                    Destroy(invader.gameObject);
-                    Destroy(curBullet);
-                    activeBullets.Remove(curBullet);
-                    break;
+                    AdvanceRow(_spawnedInvaders[row, col]);
+                }
+                else if (direction == Vector3.left && _spawnedInvaders[row, col].transform.position.x <= (leftEdge.x + invaderSpacing))
+                {
+                    AdvanceRow(_spawnedInvaders[row, col]);
+                }
+                foreach (GameObject curBullet in activeBullets)
+                {
+                    if (curBullet == null)
+                    {
+                        continue;
+                    }
+                    bool test = CheckColliderCollision(_spawnedInvaders[row, col].GetComponent<Collider>(), curBullet.GetComponent<Collider>());
+                    if (test == true)
+                    {
+                        Destroy(_spawnedInvaders[row, col].gameObject);
+                        Destroy(curBullet);
+                        activeBullets.Remove(curBullet);
+                        break;
+                    }
                 }
             }
         }
     }
 
-    void AdvanceRow()
+    void AdvanceRow(GameObject advancingInvader)
     {
         direction.x = -direction.x;
         Vector3 position = transform.position;
         position.y -= invaderAdvancing;
         transform.position = position;
+    }
+
+    void InvaderShoot()
+    {
+        for (int col = 0; col < columns; col++)
+        {
+            for (int row = 0; row < rows; row++)
+            {
+                if (_spawnedInvaders[row, col] == null)
+                {
+                    continue; // Osman'ın verdiği taktik ;)
+                }
+                else
+                {
+                    if (Random.value <= invaderAttackChance)
+                    {
+                        GameObject missile = Instantiate(missilePrefab, _spawnedInvaders[row, col].transform);
+                        player.currentEnemyMissiles.Add(missile);
+                    }
+                    break;
+                }
+            }
+        }
     }
     
     public bool CheckColliderCollision(Collider collider1, Collider collider2)
