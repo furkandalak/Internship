@@ -20,13 +20,13 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        this.transform.position += this.direction * this.speed * Time.deltaTime;
+        transform.position += direction * speed * Time.deltaTime;
         if (transform.position.y >= topEdge.y)
         {
             Destroy(gameObject);

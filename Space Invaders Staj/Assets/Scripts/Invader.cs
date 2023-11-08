@@ -18,7 +18,7 @@ public class Invader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating(nameof(AnimateSprite), this.animationTime, this.animationTime);
+        InvokeRepeating(nameof(AnimateSprite), animationTime, animationTime);
     }
 
     // Update is called once per frame
@@ -30,11 +30,11 @@ public class Invader : MonoBehaviour
     void AnimateSprite()
     {
         _animationFrame++;
-        if (_animationFrame >= this.animationSprites.Length)
+        if (_animationFrame >= animationSprites.Length)
         {
             _animationFrame = 0;
         }
 
-        _spriteRenderer.sprite = this.animationSprites[_animationFrame];
+        _spriteRenderer.sprite = animationSprites[_animationFrame];
     }
 }

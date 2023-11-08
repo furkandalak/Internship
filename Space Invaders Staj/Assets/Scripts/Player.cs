@@ -10,11 +10,12 @@ public class Player : MonoBehaviour
     Vector3 leftEdge;
     Vector3 rightEdge;
 
-    public Projectile laserPrefab;
+    public GameObject laserPrefab;
+    public Invaders invaders;
 
     public int maxBullets = 1;
 
-    List<Projectile> spawnedBullets = new List<Projectile>();
+    List<GameObject> spawnedBullets = new List<GameObject>();
     
     void Awake()
     {
@@ -25,7 +26,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -39,13 +40,8 @@ public class Player : MonoBehaviour
         {
             MovePlayer(-speed);
         }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Shoot();
-        }
-
-        foreach (Projectile curBullet in spawnedBullets)
+        
+        foreach (GameObject curBullet in spawnedBullets)
         {
             if (curBullet == null)
             {
@@ -54,12 +50,19 @@ public class Player : MonoBehaviour
                 break;
             }
         }
+        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Shoot();
+        }
+
+
     }
 
     void MovePlayer(float speed)
     {
         transform.position += Vector3.left * speed * Time.deltaTime;
-        float xPos = Mathf.Clamp(transform.position.x,leftEdge.x, rightEdge.x);
+        float xPos = Mathf.Clamp(transform.position.x,leftEdge.x + invaders.invaderSpacing, rightEdge.x - invaders.invaderSpacing);
         transform.position = new Vector3(xPos, transform.position.y, transform.position.z);
     }
 
@@ -68,7 +71,8 @@ public class Player : MonoBehaviour
         if (maxBullets > 0)
         {
             maxBullets -= 1;
-            Projectile firedBullet = Instantiate(laserPrefab, transform.position, Quaternion.identity);
+            GameObject firedBullet = Instantiate(laserPrefab, transform.position, Quaternion.identity);
+            invaders.activeBullets.Add(firedBullet);
             spawnedBullets.Add(firedBullet);
         }
     }

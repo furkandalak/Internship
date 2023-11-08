@@ -1,10 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Invaders : MonoBehaviour
 {
-    public Invader[] prefabs;
+    public GameObject[] prefabs;
     
     public int rows = 5;
 
@@ -12,21 +14,23 @@ public class Invaders : MonoBehaviour
 
     public float invaderSpacing = 2.0f;
     public float invaderAdvancing = 1.0f;
-
+    
     public float speed = 10.0f;
     public Vector3 direction = Vector2.right;
+
+    public List<GameObject> activeBullets;
     
     void Awake()
     {
-        for (int row = 0; row < this.rows; row++)
+        for (int row = 0; row < rows; row++)
         {
             float width = invaderSpacing * (this.columns - 1);
             float height = invaderSpacing * (this.rows - 1);
             Vector3 centering = new Vector3(- width / 2, - height / 2, 0);
             Vector3 rowPosition = new Vector3(centering.x, centering.y + row * invaderSpacing, 0.0f);
-            for (int col = 0; col < this.columns; col++)
+            for (int col = 0; col < columns; col++)
             {
-                Invader invader = Instantiate(this.prefabs[row], this.transform);
+                GameObject invader = Instantiate(prefabs[row], transform);
                 Vector3 position = rowPosition;
                 position.x += col * invaderSpacing;
                 invader.transform.localPosition = position;
@@ -42,12 +46,12 @@ public class Invaders : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.position += direction * this.speed * Time.deltaTime;
+        transform.position += direction * speed * Time.deltaTime;
 
-        Vector3 leftEdge = Camera.main.ViewportToWorldPoint(Vector3.zero); // Sonunda
+        Vector3 leftEdge = Camera.main.ViewportToWorldPoint(Vector3.zero); // Sonunda boundary bulmayı çözdük
         Vector3 rightEdge = Camera.main.ViewportToWorldPoint(Vector3.right);
         
-        foreach (Transform invader in this.transform)
+        foreach (Transform invader in transform)
         {
             if (!invader.gameObject.activeInHierarchy)
             {
@@ -62,15 +66,39 @@ public class Invaders : MonoBehaviour
             {
                 AdvanceRow();
             }
+            
+            foreach (GameObject curBullet in activeBullets)
+            {
+                if (curBullet == null)
+                {
+                    continue;
+                }
+                bool test = CheckColliderCollision(invader.GetComponent<Collider>(), curBullet.GetComponent<Collider>());
+                if (test == true)
+                {
+                    Destroy(invader.gameObject);
+                    Destroy(curBullet);
+                    activeBullets.Remove(curBullet);
+                    break;
+                }
+            }
         }
     }
 
     void AdvanceRow()
     {
         direction.x = -direction.x;
-        Vector3 position = this.transform.position;
+        Vector3 position = transform.position;
         position.y -= invaderAdvancing;
-        this.transform.position = position;
+        transform.position = position;
+    }
+    
+    public bool CheckColliderCollision(Collider collider1, Collider collider2)
+    {
+        return (collider1.position.x - collider1.width/2 < collider2.position.x + collider2.width/2 &&
+                collider1.position.x + collider1.width/2 > collider2.position.x - collider2.width/2 &&
+                collider1.position.y - collider1.height/2 < collider2.position.y + collider2.height/2 &&
+                collider1.position.y + collider1.height/2 > collider2.position.y - collider2.height/2);
     }
     
 }

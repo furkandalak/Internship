@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7607243745875272785}
   - component: {fileID: 769851835133114894}
   - component: {fileID: 8804149646507461045}
+  - component: {fileID: 7754419782401919958}
   m_Layer: 0
   m_Name: InvaderBase
   m_TagString: Untagged
@@ -97,3 +98,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2b0c4f6ab30a94da878b9fc0239fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animationSprites: []
+  animationTime: 1
+--- !u!114 &7754419782401919958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5183842287726519919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28956234167e5874184b1d30936cf71b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  position: {x: 0, y: 0, z: 0}
+  width: 0
+  height: 0
