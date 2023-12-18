@@ -6,6 +6,9 @@ using UnityEngine;
 using UnityEngine.Assertions.Must;
 using Random = UnityEngine.Random;
 
+/// <summary>
+///  This Class controls Ball Movement and Segment Intersections
+/// </summary>
 public class BallMovement : MonoBehaviour
 {
     public Transform ball;
@@ -145,6 +148,15 @@ public class BallMovement : MonoBehaviour
         Gizmos.DrawRay(ball.transform.position, direction);
     }
 
+    /// <summary>
+    /// Calculates two line segmentation
+    /// </summary>
+    /// <param name="p1">First point of firt line</param>
+    /// <param name="p2">Second point of first line</param>
+    /// <param name="q1">First point of second line</param>
+    /// <param name="q2">Second point of second line</param>
+    /// <param name="intersectionPoint">Returns if intersect</param>
+    /// <returns>Bool</returns>
 
     public struct LineSegment
     {
@@ -160,7 +172,7 @@ public class BallMovement : MonoBehaviour
         }
     }
 
-    bool LineSegmentIntersection(Vector3 p1, Vector3 p2, Vector3 q1, Vector3 q2, out Vector3 intersectionPoint)
+    public bool LineSegmentIntersection(Vector3 p1, Vector3 p2, Vector3 q1, Vector3 q2, out Vector3 intersectionPoint)
     {
         Vector3 r = p2 - p1;
         Vector3 s = q2 - q1;

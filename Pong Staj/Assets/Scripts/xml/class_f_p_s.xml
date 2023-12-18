@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_f_p_s" kind="class" language="C#" prot="public">
+    <compoundname>FPS</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_f_p_s_1a8edbe17636de8e126b0667f404e133b7" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void FPS.Update</definition>
+        <argsstring>()</argsstring>
+        <name>Update</name>
+        <qualifiedname>FPS.Update</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/FPS.cs" line="10" column="10" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/FPS.cs" bodystart="10" bodyend="28"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>This Class performs <ref refid="class_f_p_s" kindref="compound">FPS</ref> changes. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>FPS</label>
+        <link refid="class_f_p_s"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>MonoBehaviour</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>FPS</label>
+        <link refid="class_f_p_s"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>MonoBehaviour</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/FPS.cs" line="8" column="7" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/FPS.cs" bodystart="9" bodyend="31"/>
+    <listofallmembers>
+      <member refid="class_f_p_s_1a8edbe17636de8e126b0667f404e133b7" prot="private" virt="non-virtual"><scope>FPS</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

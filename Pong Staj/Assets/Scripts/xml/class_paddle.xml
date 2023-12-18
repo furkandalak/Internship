@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_paddle" kind="class" language="C#" prot="public">
+    <compoundname>Paddle</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_paddle_1a25f7d923692a3ad5c5c394961a847a3a" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float Paddle.speed</definition>
+        <argsstring></argsstring>
+        <name>speed</name>
+        <qualifiedname>Paddle.speed</qualifiedname>
+        <initializer>= 5.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/Paddle.cs" line="10" column="18" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/Paddle.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_paddle_1aa3b396c22d692e4779532a3abab3ae2f" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Paddle.Start</definition>
+        <argsstring>()</argsstring>
+        <name>Start</name>
+        <qualifiedname>Paddle.Start</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/Paddle.cs" line="11" column="18" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/Paddle.cs" bodystart="11" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_paddle_1ac7db1bd590bb55d9c91582a78e2d4bad" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Paddle.Update</definition>
+        <argsstring>()</argsstring>
+        <name>Update</name>
+        <qualifiedname>Paddle.Update</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/Paddle.cs" line="20" column="10" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/Paddle.cs" bodystart="20" bodyend="33"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>This Class performs <ref refid="class_paddle" kindref="compound">Paddle</ref> Movement. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>MonoBehaviour</label>
+      </node>
+      <node id="1">
+        <label>Paddle</label>
+        <link refid="class_paddle"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>MonoBehaviour</label>
+      </node>
+      <node id="1">
+        <label>Paddle</label>
+        <link refid="class_paddle"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/Paddle.cs" line="8" column="7" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/Paddle.cs" bodystart="9" bodyend="34"/>
+    <listofallmembers>
+      <member refid="class_paddle_1a25f7d923692a3ad5c5c394961a847a3a" prot="public" virt="non-virtual"><scope>Paddle</scope><name>speed</name></member>
+      <member refid="class_paddle_1aa3b396c22d692e4779532a3abab3ae2f" prot="private" virt="non-virtual"><scope>Paddle</scope><name>Start</name></member>
+      <member refid="class_paddle_1ac7db1bd590bb55d9c91582a78e2d4bad" prot="private" virt="non-virtual"><scope>Paddle</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

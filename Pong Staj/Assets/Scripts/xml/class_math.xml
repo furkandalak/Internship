@@ -1,0 +1,201 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_math" kind="class" language="C#" prot="public">
+    <compoundname>Math</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_math_1a7c871f51dfc34ae986cd577e732183ae" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Math.AddTwoIntegers</definition>
+        <argsstring>(int a, int b)</argsstring>
+        <name>AddTwoIntegers</name>
+        <qualifiedname>Math.AddTwoIntegers</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Adds two Integers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an Integer</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an Integer </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>int (a + b) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/FPS.cs" line="47" column="16" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/FPS.cs" bodystart="47" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="class_math_1a62b011a90e95facd6ee112bd171bccc0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Math.SubTwoIntegers</definition>
+        <argsstring>(int a, int b)</argsstring>
+        <name>SubTwoIntegers</name>
+        <qualifiedname>Math.SubTwoIntegers</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Substracts two Integers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an Integer</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an Integer </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>int (a - b) </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/FPS.cs" line="57" column="16" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/FPS.cs" bodystart="57" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="class_math_1a56e40797c0abd636af35283f35748f59" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int Math.MultiTwoIntegers</definition>
+        <argsstring>(int a, int b)</argsstring>
+        <name>MultiTwoIntegers</name>
+        <qualifiedname>Math.MultiTwoIntegers</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Multiplies two Integers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an Integer</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>an Integer </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>int (a * b) </para>
+</simplesect>
+<simplesect kind="note"><para>It uses <ref refid="class_math_1a7c871f51dfc34ae986cd577e732183ae" kindref="member">Math.AddTwoIntegers()</ref> with for loop </para>
+</simplesect>
+<simplesect kind="attention"><para>Not Tested Yet </para>
+</simplesect>
+<simplesect kind="warning"><para>Do not use <bold>0</bold> as a parameter </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/FPS.cs" line="70" column="16" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/FPS.cs" bodystart="70" bodyend="78"/>
+      </memberdef>
+      <memberdef kind="function" id="class_math_1a5f89b21d11567863daecedba91addc11" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void Math.Update</definition>
+        <argsstring>()</argsstring>
+        <name>Update</name>
+        <qualifiedname>Math.Update</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/FPS.cs" line="80" column="17" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/FPS.cs" bodystart="80" bodyend="84"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Makes some calculating. </para>
+    </briefdescription>
+    <detaileddescription>
+<sect1 id="class_math_1name">
+<title>&quot;NAME&quot;</title>
+<para>Makes calculations for some basic <emphasis><ref refid="class_math" kindref="compound">Math</ref></emphasis> stuff.</para>
+<para><simplesect kind="note"><para>Check Examples from <ref refid="_math-example" kindref="compound">here</ref> </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="_extra-example" kindref="compound">Extra</ref> </para>
+</simplesect>
+</para>
+</sect1>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>Math</label>
+        <link refid="class_math"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>MonoBehaviour</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>Math</label>
+        <link refid="class_math"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>MonoBehaviour</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/FPS.cs" line="42" column="7" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/FPS.cs" bodystart="43" bodyend="85"/>
+    <listofallmembers>
+      <member refid="class_math_1a7c871f51dfc34ae986cd577e732183ae" prot="public" virt="non-virtual"><scope>Math</scope><name>AddTwoIntegers</name></member>
+      <member refid="class_math_1a56e40797c0abd636af35283f35748f59" prot="public" virt="non-virtual"><scope>Math</scope><name>MultiTwoIntegers</name></member>
+      <member refid="class_math_1a62b011a90e95facd6ee112bd171bccc0" prot="public" virt="non-virtual"><scope>Math</scope><name>SubTwoIntegers</name></member>
+      <member refid="class_math_1a5f89b21d11567863daecedba91addc11" prot="public" virt="non-virtual"><scope>Math</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

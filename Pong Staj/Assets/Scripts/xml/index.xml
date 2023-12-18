@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.8" xml:lang="en-US">
+  <compound refid="class_ball_movement" kind="class"><name>BallMovement</name>
+    <member refid="class_ball_movement_1ab209b6e583dcf3fc114ffa3114fac037" kind="enum"><name>SegmentName</name></member>
+    <member refid="class_ball_movement_1ab209b6e583dcf3fc114ffa3114fac037a8cebfcfa77a45ec2acf5ea8b1ae7dd34" kind="enumvalue"><name>LeftPaddle</name></member>
+    <member refid="class_ball_movement_1ab209b6e583dcf3fc114ffa3114fac037a79a6011684ebacf74b1970fdc71d4e01" kind="enumvalue"><name>RightPaddle</name></member>
+    <member refid="class_ball_movement_1ab209b6e583dcf3fc114ffa3114fac037a7f8ae8d1e41433fceba8ca857de589e3" kind="enumvalue"><name>TopWall</name></member>
+    <member refid="class_ball_movement_1ab209b6e583dcf3fc114ffa3114fac037a69819ef86bb65ca42ef8bd49ce311029" kind="enumvalue"><name>BottomWall</name></member>
+    <member refid="class_ball_movement_1ab2657ddd68ebf02876c11212145fcfdb" kind="variable"><name>ball</name></member>
+    <member refid="class_ball_movement_1afc7bd1ba11daafd6825473d72337f708" kind="variable"><name>paddle1</name></member>
+    <member refid="class_ball_movement_1ae6fbc952b54fb915ac79385d0a55ecc0" kind="variable"><name>paddle2</name></member>
+    <member refid="class_ball_movement_1aa33416010b3040ac39e7b02bfa7aa95a" kind="variable"><name>edgeFollow</name></member>
+    <member refid="class_ball_movement_1ae5be514e8f3c1b3af767d5a8627c9277" kind="variable"><name>speed</name></member>
+    <member refid="class_ball_movement_1ac6a63f2cbb61ce14dda95621177ee843" kind="variable"><name>direction</name></member>
+    <member refid="class_ball_movement_1a5866f553f594be14a85c88de4fcdf36f" kind="variable"><name>font</name></member>
+    <member refid="class_ball_movement_1a1909ebc19682f7b2adfb9e10e4fa43db" kind="variable"><name>score1</name></member>
+    <member refid="class_ball_movement_1a28ab551b9150cefacf23c3cca2d0959e" kind="variable"><name>score2</name></member>
+    <member refid="class_ball_movement_1ac7c255d0651d246ecc0773b3b279f2b9" kind="variable"><name>ballVelocity</name></member>
+    <member refid="class_ball_movement_1a915f59e508b3c577204a23ccc111fcd5" kind="variable"><name>lineSegments</name></member>
+    <member refid="class_ball_movement_1a7a4c105f3b8501d885139efd7d0717fb" kind="function"><name>Start</name></member>
+    <member refid="class_ball_movement_1a785de9675659ded64f66a3ae37630097" kind="function"><name>Update</name></member>
+    <member refid="class_ball_movement_1a1baf265c39a0269f7ce7c6a674dfb074" kind="function"><name>OnDrawGizmosSelected</name></member>
+    <member refid="class_ball_movement_1a368244dbcf8c26a10b5491cdc62d143d" kind="function"><name>LineSegmentIntersectionOriginal</name></member>
+    <member refid="class_ball_movement_1ab1105b683b1964ba45145cad870e3e1b" kind="function"><name>OnGUI</name></member>
+    <member refid="class_ball_movement_1a2c6180a5d985ce8c7c39596ab9e5d9a3" kind="function"><name>LineSegmentIntersection</name></member>
+  </compound>
+  <compound refid="class_example_class" kind="class"><name>ExampleClass</name>
+    <member refid="class_example_class_1aad2debe13d2dbbdbec0efd46c590f217" kind="function"><name>ExampleMethod</name></member>
+    <member refid="class_example_class_1a1a480cb7ebc79aa436d3db06417d8630" kind="function"><name>Square</name></member>
+  </compound>
+  <compound refid="class_f_p_s" kind="class"><name>FPS</name>
+    <member refid="class_f_p_s_1a8edbe17636de8e126b0667f404e133b7" kind="function"><name>Update</name></member>
+  </compound>
+  <compound refid="struct_ball_movement_1_1_line_segment" kind="struct"><name>BallMovement::LineSegment</name>
+    <member refid="struct_ball_movement_1_1_line_segment_1ab6925c20f22c7ed443f2a1710866c9e5" kind="variable"><name>start</name></member>
+    <member refid="struct_ball_movement_1_1_line_segment_1a69fc40fa8c0df4a8c088a9fdd6c97449" kind="variable"><name>end</name></member>
+    <member refid="struct_ball_movement_1_1_line_segment_1a9c4654ac7f753bf2b97cad21ffc4c04c" kind="variable"><name>normal</name></member>
+    <member refid="struct_ball_movement_1_1_line_segment_1ad2b567b007687d6235085bfb628f6fe8" kind="function"><name>LineSegment</name></member>
+  </compound>
+  <compound refid="class_math" kind="class"><name>Math</name>
+    <member refid="class_math_1a7c871f51dfc34ae986cd577e732183ae" kind="function"><name>AddTwoIntegers</name></member>
+    <member refid="class_math_1a62b011a90e95facd6ee112bd171bccc0" kind="function"><name>SubTwoIntegers</name></member>
+    <member refid="class_math_1a56e40797c0abd636af35283f35748f59" kind="function"><name>MultiTwoIntegers</name></member>
+    <member refid="class_math_1a5f89b21d11567863daecedba91addc11" kind="function"><name>Update</name></member>
+  </compound>
+  <compound refid="class_paddle" kind="class"><name>Paddle</name>
+    <member refid="class_paddle_1a25f7d923692a3ad5c5c394961a847a3a" kind="variable"><name>speed</name></member>
+    <member refid="class_paddle_1aa3b396c22d692e4779532a3abab3ae2f" kind="function"><name>Start</name></member>
+    <member refid="class_paddle_1ac7db1bd590bb55d9c91582a78e2d4bad" kind="function"><name>Update</name></member>
+  </compound>
+  <compound refid="namespace_random" kind="namespace"><name>Random</name>
+  </compound>
+  <compound refid="namespace_system" kind="namespace"><name>System</name>
+  </compound>
+  <compound refid="namespace_system_1_1_collections" kind="namespace"><name>System::Collections</name>
+  </compound>
+  <compound refid="namespace_system_1_1_collections_1_1_generic" kind="namespace"><name>System::Collections::Generic</name>
+  </compound>
+  <compound refid="namespace_system_1_1_threading_1_1_tasks" kind="namespace"><name>System::Threading::Tasks</name>
+  </compound>
+  <compound refid="namespace_unity_engine" kind="namespace"><name>UnityEngine</name>
+  </compound>
+  <compound refid="namespace_unity_engine_1_1_assertions_1_1_must" kind="namespace"><name>UnityEngine::Assertions::Must</name>
+  </compound>
+  <compound refid="_ball_movement_8cs" kind="file"><name>BallMovement.cs</name>
+    <member refid="_ball_movement_8cs_1a832e8f52fca5a678819ec96269dcb532" kind="typedef"><name>Random</name></member>
+  </compound>
+  <compound refid="_example_class_8cs" kind="file"><name>ExampleClass.cs</name>
+  </compound>
+  <compound refid="_f_p_s_8cs" kind="file"><name>FPS.cs</name>
+  </compound>
+  <compound refid="_paddle_8cs" kind="file"><name>Paddle.cs</name>
+  </compound>
+  <compound refid="dir_b7568e80c0eb65df54ebd3d006b23e5e" kind="dir"><name>C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets</name>
+  </compound>
+  <compound refid="dir_1dcde7ea5adb4470e937f2f1c0036389" kind="dir"><name>C:/Users/dalakgames/Desktop/FurkanIntern</name>
+  </compound>
+  <compound refid="dir_db18fc5b59b71647f21f3d49fd35b7b1" kind="dir"><name>C:/Users/dalakgames/Desktop/FurkanIntern/Internship</name>
+  </compound>
+  <compound refid="dir_7f2202f332a95df5c6e50699b596c7b9" kind="dir"><name>C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj</name>
+  </compound>
+  <compound refid="dir_97d71e10d40891aefe860af68a8d9ea5" kind="dir"><name>C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts</name>
+  </compound>
+  <compound refid="_math-example" kind="example"><name>Math</name>
+  </compound>
+  <compound refid="_extra-example" kind="example"><name>Extra</name>
+  </compound>
+</doxygenindex>

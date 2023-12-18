@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="struct_ball_movement_1_1_line_segment" kind="struct" language="C#" prot="public">
+    <compoundname>BallMovement::LineSegment</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_ball_movement_1_1_line_segment_1ab6925c20f22c7ed443f2a1710866c9e5" prot="public" static="no" mutable="no">
+        <type>Vector3</type>
+        <definition>Vector3 BallMovement.LineSegment.start</definition>
+        <argsstring></argsstring>
+        <name>start</name>
+        <qualifiedname>BallMovement.LineSegment.start</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" line="163" column="24" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" bodystart="163" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_ball_movement_1_1_line_segment_1a69fc40fa8c0df4a8c088a9fdd6c97449" prot="public" static="no" mutable="no">
+        <type>Vector3</type>
+        <definition>Vector3 BallMovement.LineSegment.end</definition>
+        <argsstring></argsstring>
+        <name>end</name>
+        <qualifiedname>BallMovement.LineSegment.end</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" line="164" column="24" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" bodystart="164" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_ball_movement_1_1_line_segment_1a9c4654ac7f753bf2b97cad21ffc4c04c" prot="public" static="no" mutable="no">
+        <type>Vector3</type>
+        <definition>Vector3 BallMovement.LineSegment.normal</definition>
+        <argsstring></argsstring>
+        <name>normal</name>
+        <qualifiedname>BallMovement.LineSegment.normal</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" line="165" column="24" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" bodystart="165" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_ball_movement_1_1_line_segment_1ad2b567b007687d6235085bfb628f6fe8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>BallMovement.LineSegment.LineSegment</definition>
+        <argsstring>(Vector3 start, Vector3 end, Vector3 normal)</argsstring>
+        <name>LineSegment</name>
+        <qualifiedname>BallMovement.LineSegment.LineSegment</qualifiedname>
+        <param>
+          <type>Vector3</type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type>Vector3</type>
+          <declname>end</declname>
+        </param>
+        <param>
+          <type>Vector3</type>
+          <declname>normal</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" line="167" column="16" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" bodystart="167" bodyend="172"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Calculates two line segmentation. </para>
+    </briefdescription>
+    <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>p1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>First point of firt line</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>p2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second point of first line</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>q1</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>First point of second line</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>q2</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Second point of second line</para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>intersectionPoint</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Returns if intersect</para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Bool</para>
+</simplesect>
+</para>
+    </detaileddescription>
+    <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" line="161" column="11" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" bodystart="162" bodyend="173"/>
+    <listofallmembers>
+      <member refid="struct_ball_movement_1_1_line_segment_1a69fc40fa8c0df4a8c088a9fdd6c97449" prot="public" virt="non-virtual"><scope>BallMovement::LineSegment</scope><name>end</name></member>
+      <member refid="struct_ball_movement_1_1_line_segment_1ad2b567b007687d6235085bfb628f6fe8" prot="public" virt="non-virtual"><scope>BallMovement::LineSegment</scope><name>LineSegment</name></member>
+      <member refid="struct_ball_movement_1_1_line_segment_1a9c4654ac7f753bf2b97cad21ffc4c04c" prot="public" virt="non-virtual"><scope>BallMovement::LineSegment</scope><name>normal</name></member>
+      <member refid="struct_ball_movement_1_1_line_segment_1ab6925c20f22c7ed443f2a1710866c9e5" prot="public" virt="non-virtual"><scope>BallMovement::LineSegment</scope><name>start</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,392 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_ball_movement" kind="class" language="C#" prot="public">
+    <compoundname>BallMovement</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">MonoBehaviour</basecompoundref>
+    <innerclass refid="struct_ball_movement_1_1_line_segment" prot="public">BallMovement::LineSegment</innerclass>
+    <sectiondef kind="private-type">
+      <memberdef kind="enum" id="class_ball_movement_1ab209b6e583dcf3fc114ffa3114fac037" prot="private" static="no" strong="yes">
+        <type></type>
+        <name>SegmentName</name>
+        <qualifiedname>BallMovement.SegmentName</qualifiedname>
+        <enumvalue id="class_ball_movement_1ab209b6e583dcf3fc114ffa3114fac037a8cebfcfa77a45ec2acf5ea8b1ae7dd34" prot="private">
+          <name>LeftPaddle</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_ball_movement_1ab209b6e583dcf3fc114ffa3114fac037a79a6011684ebacf74b1970fdc71d4e01" prot="private">
+          <name>RightPaddle</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_ball_movement_1ab209b6e583dcf3fc114ffa3114fac037a7f8ae8d1e41433fceba8ca857de589e3" prot="private">
+          <name>TopWall</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="class_ball_movement_1ab209b6e583dcf3fc114ffa3114fac037a69819ef86bb65ca42ef8bd49ce311029" prot="private">
+          <name>BottomWall</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" line="29" column="5" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" bodystart="30" bodyend="35"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="class_ball_movement_1ab2657ddd68ebf02876c11212145fcfdb" prot="public" static="no" mutable="no">
+        <type>Transform</type>
+        <definition>Transform BallMovement.ball</definition>
+        <argsstring></argsstring>
+        <name>ball</name>
+        <qualifiedname>BallMovement.ball</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" line="14" column="22" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ball_movement_1afc7bd1ba11daafd6825473d72337f708" prot="public" static="no" mutable="no">
+        <type>Transform</type>
+        <definition>Transform BallMovement.paddle1</definition>
+        <argsstring></argsstring>
+        <name>paddle1</name>
+        <qualifiedname>BallMovement.paddle1</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" line="15" column="22" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ball_movement_1ae6fbc952b54fb915ac79385d0a55ecc0" prot="public" static="no" mutable="no">
+        <type>Transform</type>
+        <definition>Transform BallMovement.paddle2</definition>
+        <argsstring></argsstring>
+        <name>paddle2</name>
+        <qualifiedname>BallMovement.paddle2</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" line="16" column="22" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ball_movement_1aa33416010b3040ac39e7b02bfa7aa95a" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float BallMovement.edgeFollow</definition>
+        <argsstring></argsstring>
+        <name>edgeFollow</name>
+        <qualifiedname>BallMovement.edgeFollow</qualifiedname>
+        <initializer>= 11f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" line="18" column="18" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ball_movement_1ae5be514e8f3c1b3af767d5a8627c9277" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float BallMovement.speed</definition>
+        <argsstring></argsstring>
+        <name>speed</name>
+        <qualifiedname>BallMovement.speed</qualifiedname>
+        <initializer>= 5f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" line="19" column="18" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ball_movement_1ac6a63f2cbb61ce14dda95621177ee843" prot="public" static="no" mutable="no">
+        <type>Vector2</type>
+        <definition>Vector2 BallMovement.direction</definition>
+        <argsstring></argsstring>
+        <name>direction</name>
+        <qualifiedname>BallMovement.direction</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" line="20" column="20" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ball_movement_1a5866f553f594be14a85c88de4fcdf36f" prot="public" static="no" mutable="no">
+        <type>Font</type>
+        <definition>Font BallMovement.font</definition>
+        <argsstring></argsstring>
+        <name>font</name>
+        <qualifiedname>BallMovement.font</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" line="229" column="17" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" bodystart="229" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_ball_movement_1a1909ebc19682f7b2adfb9e10e4fa43db" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int BallMovement.score1</definition>
+        <argsstring></argsstring>
+        <name>score1</name>
+        <qualifiedname>BallMovement.score1</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" line="22" column="17" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ball_movement_1a28ab551b9150cefacf23c3cca2d0959e" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int BallMovement.score2</definition>
+        <argsstring></argsstring>
+        <name>score2</name>
+        <qualifiedname>BallMovement.score2</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" line="23" column="17" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ball_movement_1ac7c255d0651d246ecc0773b3b279f2b9" prot="private" static="no" mutable="no">
+        <type>Vector3</type>
+        <definition>Vector3 BallMovement.ballVelocity</definition>
+        <argsstring></argsstring>
+        <name>ballVelocity</name>
+        <qualifiedname>BallMovement.ballVelocity</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" line="25" column="21" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_ball_movement_1a915f59e508b3c577204a23ccc111fcd5" prot="private" static="no" mutable="no">
+        <type>List&lt; <ref refid="struct_ball_movement_1_1_line_segment" kindref="compound">LineSegment</ref> &gt;</type>
+        <definition>List&lt;LineSegment&gt; BallMovement.lineSegments</definition>
+        <argsstring></argsstring>
+        <name>lineSegments</name>
+        <qualifiedname>BallMovement.lineSegments</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" line="26" column="18" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" bodystart="26" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_ball_movement_1a7a4c105f3b8501d885139efd7d0717fb" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void BallMovement.Start</definition>
+        <argsstring>()</argsstring>
+        <name>Start</name>
+        <qualifiedname>BallMovement.Start</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" line="37" column="10" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" bodystart="37" bodyend="69"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ball_movement_1a785de9675659ded64f66a3ae37630097" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void BallMovement.Update</definition>
+        <argsstring>()</argsstring>
+        <name>Update</name>
+        <qualifiedname>BallMovement.Update</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" line="71" column="10" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" bodystart="71" bodyend="144"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ball_movement_1a1baf265c39a0269f7ce7c6a674dfb074" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void BallMovement.OnDrawGizmosSelected</definition>
+        <argsstring>()</argsstring>
+        <name>OnDrawGizmosSelected</name>
+        <qualifiedname>BallMovement.OnDrawGizmosSelected</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" line="146" column="18" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" bodystart="146" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ball_movement_1a368244dbcf8c26a10b5491cdc62d143d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BallMovement.LineSegmentIntersectionOriginal</definition>
+        <argsstring>(Vector3 p1, Vector3 p2, Vector3 q1, Vector3 q2, out Vector3 intersectionPoint)</argsstring>
+        <name>LineSegmentIntersectionOriginal</name>
+        <qualifiedname>BallMovement.LineSegmentIntersectionOriginal</qualifiedname>
+        <param>
+          <type>Vector3</type>
+          <declname>p1</declname>
+        </param>
+        <param>
+          <type>Vector3</type>
+          <declname>p2</declname>
+        </param>
+        <param>
+          <type>Vector3</type>
+          <declname>q1</declname>
+        </param>
+        <param>
+          <type>Vector3</type>
+          <declname>q2</declname>
+        </param>
+        <param>
+          <type>out Vector3</type>
+          <declname>intersectionPoint</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" line="193" column="10" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" bodystart="193" bodyend="227"/>
+      </memberdef>
+      <memberdef kind="function" id="class_ball_movement_1ab1105b683b1964ba45145cad870e3e1b" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void BallMovement.OnGUI</definition>
+        <argsstring>()</argsstring>
+        <name>OnGUI</name>
+        <qualifiedname>BallMovement.OnGUI</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" line="230" column="18" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" bodystart="230" bodyend="238"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_ball_movement_1a2c6180a5d985ce8c7c39596ab9e5d9a3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BallMovement.LineSegmentIntersection</definition>
+        <argsstring>(Vector3 p1, Vector3 p2, Vector3 q1, Vector3 q2, out Vector3 intersectionPoint)</argsstring>
+        <name>LineSegmentIntersection</name>
+        <qualifiedname>BallMovement.LineSegmentIntersection</qualifiedname>
+        <param>
+          <type>Vector3</type>
+          <declname>p1</declname>
+        </param>
+        <param>
+          <type>Vector3</type>
+          <declname>p2</declname>
+        </param>
+        <param>
+          <type>Vector3</type>
+          <declname>q1</declname>
+        </param>
+        <param>
+          <type>Vector3</type>
+          <declname>q2</declname>
+        </param>
+        <param>
+          <type>out Vector3</type>
+          <declname>intersectionPoint</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" line="175" column="17" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" bodystart="175" bodyend="191"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>This Class controls Ball Movement and Segment Intersections. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>BallMovement</label>
+        <link refid="class_ball_movement"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>MonoBehaviour</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>BallMovement</label>
+        <link refid="class_ball_movement"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>MonoBehaviour</label>
+      </node>
+    </collaborationgraph>
+    <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" line="12" column="7" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs" bodystart="13" bodyend="239"/>
+    <listofallmembers>
+      <member refid="class_ball_movement_1ab2657ddd68ebf02876c11212145fcfdb" prot="public" virt="non-virtual"><scope>BallMovement</scope><name>ball</name></member>
+      <member refid="class_ball_movement_1ac7c255d0651d246ecc0773b3b279f2b9" prot="private" virt="non-virtual"><scope>BallMovement</scope><name>ballVelocity</name></member>
+      <member refid="class_ball_movement_1ac6a63f2cbb61ce14dda95621177ee843" prot="public" virt="non-virtual"><scope>BallMovement</scope><name>direction</name></member>
+      <member refid="class_ball_movement_1aa33416010b3040ac39e7b02bfa7aa95a" prot="public" virt="non-virtual"><scope>BallMovement</scope><name>edgeFollow</name></member>
+      <member refid="class_ball_movement_1a5866f553f594be14a85c88de4fcdf36f" prot="public" virt="non-virtual"><scope>BallMovement</scope><name>font</name></member>
+      <member refid="class_ball_movement_1a2c6180a5d985ce8c7c39596ab9e5d9a3" prot="public" virt="non-virtual"><scope>BallMovement</scope><name>LineSegmentIntersection</name></member>
+      <member refid="class_ball_movement_1a368244dbcf8c26a10b5491cdc62d143d" prot="private" virt="non-virtual"><scope>BallMovement</scope><name>LineSegmentIntersectionOriginal</name></member>
+      <member refid="class_ball_movement_1a915f59e508b3c577204a23ccc111fcd5" prot="private" virt="non-virtual"><scope>BallMovement</scope><name>lineSegments</name></member>
+      <member refid="class_ball_movement_1a1baf265c39a0269f7ce7c6a674dfb074" prot="private" virt="non-virtual"><scope>BallMovement</scope><name>OnDrawGizmosSelected</name></member>
+      <member refid="class_ball_movement_1ab1105b683b1964ba45145cad870e3e1b" prot="private" virt="non-virtual"><scope>BallMovement</scope><name>OnGUI</name></member>
+      <member refid="class_ball_movement_1afc7bd1ba11daafd6825473d72337f708" prot="public" virt="non-virtual"><scope>BallMovement</scope><name>paddle1</name></member>
+      <member refid="class_ball_movement_1ae6fbc952b54fb915ac79385d0a55ecc0" prot="public" virt="non-virtual"><scope>BallMovement</scope><name>paddle2</name></member>
+      <member refid="class_ball_movement_1a1909ebc19682f7b2adfb9e10e4fa43db" prot="private" virt="non-virtual"><scope>BallMovement</scope><name>score1</name></member>
+      <member refid="class_ball_movement_1a28ab551b9150cefacf23c3cca2d0959e" prot="private" virt="non-virtual"><scope>BallMovement</scope><name>score2</name></member>
+      <member refid="class_ball_movement_1ab209b6e583dcf3fc114ffa3114fac037" prot="private" virt="non-virtual"><scope>BallMovement</scope><name>SegmentName</name></member>
+      <member refid="class_ball_movement_1ae5be514e8f3c1b3af767d5a8627c9277" prot="public" virt="non-virtual"><scope>BallMovement</scope><name>speed</name></member>
+      <member refid="class_ball_movement_1a7a4c105f3b8501d885139efd7d0717fb" prot="private" virt="non-virtual"><scope>BallMovement</scope><name>Start</name></member>
+      <member refid="class_ball_movement_1a785de9675659ded64f66a3ae37630097" prot="private" virt="non-virtual"><scope>BallMovement</scope><name>Update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

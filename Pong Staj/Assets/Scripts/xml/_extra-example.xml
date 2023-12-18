@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="_extra-example" kind="example">
+    <compoundname>Extra</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Some test examples for other functions. <bold>WIP</bold> <programlisting filename="Extra"></programlisting> </para>
+    </detaileddescription>
+    <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/Paddle.cs"/>
+  </compounddef>
+</doxygen>

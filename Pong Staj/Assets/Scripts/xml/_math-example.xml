@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="_math-example" kind="example">
+    <compoundname>Math</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>With <ref refid="class_math" kindref="compound">Math</ref> class you can use various integer calculations <linebreak/>
+You can use <ref refid="class_math" kindref="compound">Math</ref> functions for calculating different things. But beware using <ref refid="class_math_1a56e40797c0abd636af35283f35748f59" kindref="member">Math.MultiTwoIntegers()</ref>.</para>
+<para><simplesect kind="note"><para>this section is in <bold>WIP</bold></para>
+</simplesect>
+You can find examples for functions <linebreak/>
+<linebreak/>
+<ref refid="class_math_1a7c871f51dfc34ae986cd577e732183ae" kindref="member">Math.AddTwoIntegers()</ref> </para>
+<para>Example: <programlisting><codeline><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_f<sp/>=<sp/>3;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>_s<sp/>=<sp/>4;</highlight></codeline>
+<codeline><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>total<sp/>=<sp/>AddTwoIntegers(_f,<sp/>_s);</highlight></codeline>
+</programlisting> <simplesect kind="return"><para>7 </para>
+</simplesect>
+</para>
+<para><ref refid="class_math_1a56e40797c0abd636af35283f35748f59" kindref="member">Math.MultiTwoIntegers()</ref> </para>
+<para>Example: <programlisting><codeline><highlight class="normal"><ref refid="class_example_class" kindref="compound">ExampleClass</ref><sp/>example<sp/>=<sp/></highlight><highlight class="keyword">new</highlight><highlight class="normal"><sp/>AddTwoIntegers();</highlight></codeline>
+<codeline><highlight class="normal">example.<ref refid="class_example_class_1aad2debe13d2dbbdbec0efd46c590f217" kindref="member">ExampleMethod</ref>();</highlight></codeline>
+</programlisting> <simplesect kind="return"><para>12 </para>
+</simplesect>
+</para>
+<para><programlisting filename="Math"></programlisting> </para>
+    </detaileddescription>
+    <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/Paddle.cs"/>
+  </compounddef>
+</doxygen>

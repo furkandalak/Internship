@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_97d71e10d40891aefe860af68a8d9ea5" kind="dir">
+    <compoundname>C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts</compoundname>
+    <innerfile refid="_ball_movement_8cs">BallMovement.cs</innerfile>
+    <innerfile refid="_example_class_8cs">ExampleClass.cs</innerfile>
+    <innerfile refid="_f_p_s_8cs">FPS.cs</innerfile>
+    <innerfile refid="_paddle_8cs">Paddle.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/"/>
+  </compounddef>
+</doxygen>

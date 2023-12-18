@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="class_example_class" kind="class" language="C#" prot="public">
+    <compoundname>ExampleClass</compoundname>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_example_class_1aad2debe13d2dbbdbec0efd46c590f217" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ExampleClass.ExampleMethod</definition>
+        <argsstring>()</argsstring>
+        <name>ExampleMethod</name>
+        <qualifiedname>ExampleClass.ExampleMethod</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/ExampleClass.cs" line="5" column="17" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/ExampleClass.cs" bodystart="5" bodyend="9"/>
+      </memberdef>
+      <memberdef kind="function" id="class_example_class_1a1a480cb7ebc79aa436d3db06417d8630" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int ExampleClass.Square</definition>
+        <argsstring>(int a)</argsstring>
+        <name>Square</name>
+        <qualifiedname>ExampleClass.Square</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/ExampleClass.cs" line="11" column="16" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/ExampleClass.cs" bodystart="11" bodyend="15"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/ExampleClass.cs" line="2" column="7" bodyfile="C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/ExampleClass.cs" bodystart="3" bodyend="16"/>
+    <listofallmembers>
+      <member refid="class_example_class_1aad2debe13d2dbbdbec0efd46c590f217" prot="public" virt="non-virtual"><scope>ExampleClass</scope><name>ExampleMethod</name></member>
+      <member refid="class_example_class_1a1a480cb7ebc79aa436d3db06417d8630" prot="public" virt="non-virtual"><scope>ExampleClass</scope><name>Square</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

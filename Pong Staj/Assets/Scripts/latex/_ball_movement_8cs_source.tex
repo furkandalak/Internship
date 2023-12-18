@@ -1,0 +1,233 @@
+\doxysection{Ball\+Movement.\+cs}
+\hypertarget{_ball_movement_8cs_source}{}\label{_ball_movement_8cs_source}\index{C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs@{C:/Users/dalakgames/Desktop/FurkanIntern/Internship/Pong Staj/Assets/Scripts/BallMovement.cs}}
+\mbox{\hyperlink{_ball_movement_8cs}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00001}00001\ \textcolor{keyword}{using\ }System;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00002}00002\ \textcolor{keyword}{using\ }System.Collections;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00003}00003\ \textcolor{keyword}{using\ }System.Collections.Generic;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00004}00004\ \textcolor{keyword}{using\ }System.Threading.Tasks;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00005}00005\ \textcolor{keyword}{using\ }UnityEngine;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00006}00006\ \textcolor{keyword}{using\ }UnityEngine.Assertions.Must;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00007}\mbox{\hyperlink{_ball_movement_8cs_a832e8f52fca5a678819ec96269dcb532}{00007}}\ \textcolor{keyword}{using\ }\mbox{\hyperlink{_ball_movement_8cs_a832e8f52fca5a678819ec96269dcb532}{Random}}\ =\ UnityEngine.Random;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00012}\mbox{\hyperlink{class_ball_movement}{00012}}\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_ball_movement}{BallMovement}}\ :\ MonoBehaviour}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00013}00013\ \{}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00014}\mbox{\hyperlink{class_ball_movement_ab2657ddd68ebf02876c11212145fcfdb}{00014}}\ \ \ \ \ \textcolor{keyword}{public}\ Transform\ \mbox{\hyperlink{class_ball_movement_ab2657ddd68ebf02876c11212145fcfdb}{ball}};}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00015}\mbox{\hyperlink{class_ball_movement_afc7bd1ba11daafd6825473d72337f708}{00015}}\ \ \ \ \ \textcolor{keyword}{public}\ Transform\ \mbox{\hyperlink{class_ball_movement_afc7bd1ba11daafd6825473d72337f708}{paddle1}};}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00016}\mbox{\hyperlink{class_ball_movement_ae6fbc952b54fb915ac79385d0a55ecc0}{00016}}\ \ \ \ \ \textcolor{keyword}{public}\ Transform\ \mbox{\hyperlink{class_ball_movement_ae6fbc952b54fb915ac79385d0a55ecc0}{paddle2}};}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00018}\mbox{\hyperlink{class_ball_movement_aa33416010b3040ac39e7b02bfa7aa95a}{00018}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_ball_movement_aa33416010b3040ac39e7b02bfa7aa95a}{edgeFollow}}\ =\ 11f;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00019}\mbox{\hyperlink{class_ball_movement_ae5be514e8f3c1b3af767d5a8627c9277}{00019}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{class_ball_movement_ae5be514e8f3c1b3af767d5a8627c9277}{speed}}\ =\ 5f;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00020}\mbox{\hyperlink{class_ball_movement_ac6a63f2cbb61ce14dda95621177ee843}{00020}}\ \ \ \ \ \textcolor{keyword}{public}\ Vector2\ \mbox{\hyperlink{class_ball_movement_ac6a63f2cbb61ce14dda95621177ee843}{direction}};}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00022}00022\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{int}\ score1\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00023}00023\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{int}\ score2\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00024}00024\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00025}00025\ \ \ \ \ \textcolor{keyword}{private}\ Vector3\ ballVelocity;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00026}00026\ \ \ \ \ \textcolor{keyword}{private}\ List<LineSegment>\ lineSegments;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00027}00027\ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00029}00029\ \ \ \ \ \textcolor{keyword}{enum}\ SegmentName}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00030}00030\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00031}00031\ \ \ \ \ \ \ \ \ LeftPaddle\ =\ 0,}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00032}00032\ \ \ \ \ \ \ \ \ RightPaddle\ =\ 1,}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00033}00033\ \ \ \ \ \ \ \ \ TopWall\ =\ 2,}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00034}00034\ \ \ \ \ \ \ \ \ BottomWall\ =\ 3,}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00035}00035\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00037}00037\ \ \ \ \ \textcolor{keywordtype}{void}\ Start()}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00038}00038\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Rastgele\ direction\ ayarla}}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00040}00040\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ball_movement_ac6a63f2cbb61ce14dda95621177ee843}{direction}}\ =\ \textcolor{keyword}{new}\ Vector3(\mbox{\hyperlink{_ball_movement_8cs_a832e8f52fca5a678819ec96269dcb532}{Random}}.Range(0,\ 2)\ ==\ 0\ ?\ -\/1\ :\ 1,\ \mbox{\hyperlink{_ball_movement_8cs_a832e8f52fca5a678819ec96269dcb532}{Random}}.Range(0,\ 2)\ ==\ 0\ ?\ -\/1\ :\ 1,\ 0);}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00041}00041\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Collision\ lineları\ ayarla}}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00043}00043\ \ \ \ \ \ \ \ \ Vector3\ paddle1TopEdge\ =\ paddle1.position\ -\/\ \textcolor{keyword}{new}\ Vector3(0,\ \mbox{\hyperlink{class_ball_movement_afc7bd1ba11daafd6825473d72337f708}{paddle1}}.transform.localScale.y\ /\ 2,\ 0);}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00044}00044\ \ \ \ \ \ \ \ \ Vector3\ paddle1BottomEdge\ =\ paddle1.position\ +\ \textcolor{keyword}{new}\ Vector3(0,\ \mbox{\hyperlink{class_ball_movement_afc7bd1ba11daafd6825473d72337f708}{paddle1}}.transform.localScale.y\ /\ 2,\ 0);}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00045}00045\ \ \ \ \ \ \ \ \ Vector3\ paddle2TopEdge\ =\ paddle2.position\ -\/\ \textcolor{keyword}{new}\ Vector3(0,\ \mbox{\hyperlink{class_ball_movement_ae6fbc952b54fb915ac79385d0a55ecc0}{paddle2}}.transform.localScale.y\ /\ 2,\ 0);}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00046}00046\ \ \ \ \ \ \ \ \ Vector3\ paddle2BottomEdge\ =\ paddle2.position\ +\ \textcolor{keyword}{new}\ Vector3(0,\ \mbox{\hyperlink{class_ball_movement_ae6fbc952b54fb915ac79385d0a55ecc0}{paddle2}}.transform.localScale.y\ /\ 2,\ 0);}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00048}00048\ \ \ \ \ \ \ \ \ Vector3\ topLeft\ =\ \textcolor{keyword}{new}\ Vector3(+\mbox{\hyperlink{class_ball_movement_aa33416010b3040ac39e7b02bfa7aa95a}{edgeFollow}},\ 5,\ 0);}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00049}00049\ \ \ \ \ \ \ \ \ Vector3\ topRight\ =\ \textcolor{keyword}{new}\ Vector3(-\/\mbox{\hyperlink{class_ball_movement_aa33416010b3040ac39e7b02bfa7aa95a}{edgeFollow}},\ 5,\ 0);}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00051}00051\ \ \ \ \ \ \ \ \ Vector3\ bottomLeft\ =\ \textcolor{keyword}{new}\ Vector3(+\mbox{\hyperlink{class_ball_movement_aa33416010b3040ac39e7b02bfa7aa95a}{edgeFollow}},\ -\/5,\ 0);}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00052}00052\ \ \ \ \ \ \ \ \ Vector3\ bottomRight\ =\ \textcolor{keyword}{new}\ Vector3(-\/\mbox{\hyperlink{class_ball_movement_aa33416010b3040ac39e7b02bfa7aa95a}{edgeFollow}},\ -\/5,\ 0);}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00053}00053\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00054}00054\ \ \ \ \ \ \ \ \ Vector3\ leftScoreTop\ =\ \textcolor{keyword}{new}\ Vector3(-\/11,\ -\/5,\ 0);}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00055}00055\ \ \ \ \ \ \ \ \ Vector3\ leftScoreBottom\ =\ \textcolor{keyword}{new}\ Vector3(-\/11,\ 5,\ 0);}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00056}00056\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00057}00057\ \ \ \ \ \ \ \ \ Vector3\ rightScoreTop\ =\ \textcolor{keyword}{new}\ Vector3(11,\ -\/5,\ 0);}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00058}00058\ \ \ \ \ \ \ \ \ Vector3\ rightScoreBottom\ =\ \textcolor{keyword}{new}\ Vector3(11,\ 5,\ 0);}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00059}00059\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00060}00060\ \ \ \ \ \ \ \ \ lineSegments\ =\ \textcolor{keyword}{new}\ List<LineSegment>}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00061}00061\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ LineSegment(paddle1BottomEdge,\ paddle1TopEdge,\ Vector3.right),}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ LineSegment(paddle2BottomEdge,\ paddle2TopEdge,\ Vector3.left),}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ LineSegment(topLeft,\ topRight,\ Vector3.down),}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ LineSegment(bottomLeft,\ bottomRight,\ Vector3.up),}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ LineSegment(leftScoreTop,\ leftScoreBottom,\ Vector3.right),}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ LineSegment(rightScoreTop,\ rightScoreBottom,\ Vector3.left),}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00068}00068\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00069}00069\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00071}00071\ \ \ \ \ \textcolor{keywordtype}{void}\ Update()}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00072}00072\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Topun\ bir\ sonraki\ pozisyonunu\ tahmin\ et}}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00074}00074\ \ \ \ \ \ \ \ \ Vector3\ ballVelocity\ =\ \mbox{\hyperlink{class_ball_movement_ac6a63f2cbb61ce14dda95621177ee843}{direction}}\ *\ \mbox{\hyperlink{class_ball_movement_ae5be514e8f3c1b3af767d5a8627c9277}{speed}};}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00076}00076\ \ \ \ \ \ \ \ \ Vector3\ nextPosition\ =\ ball.position\ +\ ballVelocity\ *\ Time.deltaTime;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00078}00078\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Paddle'ın\ kenarlarını\ ve\ ekranın\ kenarlarını\ temsil\ eden\ çizgi\ parçalarını\ oluştur}}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00080}00080\ \ \ \ \ \ \ \ \ var\ leftPaddleSegment\ =\ lineSegments[(int)SegmentName.LeftPaddle];}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00081}00081\ \ \ \ \ \ \ \ \ leftPaddleSegment.start\ =\ paddle1.position\ -\/\ \textcolor{keyword}{new}\ Vector3(0,\ \mbox{\hyperlink{class_ball_movement_afc7bd1ba11daafd6825473d72337f708}{paddle1}}.transform.localScale.y\ /\ 2,\ 0);}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00082}00082\ \ \ \ \ \ \ \ \ leftPaddleSegment.end\ =\ paddle1.position\ +\ \textcolor{keyword}{new}\ Vector3(0,\ \mbox{\hyperlink{class_ball_movement_afc7bd1ba11daafd6825473d72337f708}{paddle1}}.transform.localScale.y\ /\ 2,\ 0);}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00083}00083\ \ \ \ \ \ \ \ \ lineSegments[(int)SegmentName.LeftPaddle]\ =\ leftPaddleSegment;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00085}00085\ \ \ \ \ \ \ \ \ var\ rightPaddleSegment\ =\ lineSegments[(int)SegmentName.RightPaddle];}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00086}00086\ \ \ \ \ \ \ \ \ rightPaddleSegment.start\ =\ \ paddle2.position\ -\/\ \textcolor{keyword}{new}\ Vector3(0,\ \mbox{\hyperlink{class_ball_movement_ae6fbc952b54fb915ac79385d0a55ecc0}{paddle2}}.transform.localScale.y\ /\ 2,\ 0);}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00087}00087\ \ \ \ \ \ \ \ \ rightPaddleSegment.end\ =\ paddle2.position\ +\ \textcolor{keyword}{new}\ Vector3(0,\ \mbox{\hyperlink{class_ball_movement_ae6fbc952b54fb915ac79385d0a55ecc0}{paddle2}}.transform.localScale.y\ /\ 2,\ 0);}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00088}00088\ \ \ \ \ \ \ \ \ lineSegments[(int)SegmentName.RightPaddle]\ =\ rightPaddleSegment;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00089}00089\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00090}00090\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Topun\ hareketini\ temsil\ eden\ çizgi\ parçasını\ oluştur}}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00092}00092\ \ \ \ \ \ \ \ \ Vector3\ ballStart\ =\ \mbox{\hyperlink{class_ball_movement_ab2657ddd68ebf02876c11212145fcfdb}{ball}}.position;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00093}00093\ \ \ \ \ \ \ \ \ Vector3\ ballEnd\ =\ nextPosition;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00095}00095\ \ \ \ \ \ \ \ \ Debug.DrawLine(ballStart,\ ballEnd,\ Color.red);}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00098}00098\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Topun\ hareket\ çizgisi\ ile\ paddle'ın\ kenarları\ ve\ ekranın\ kenarları\ arasında\ kesişme\ kontrolü\ yap}}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00100}00100\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{foreach}\ (var\ lineSegment\ \textcolor{keywordflow}{in}\ lineSegments)}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00101}00101\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ Debug.DrawLine(lineSegment.start,\ lineSegment.end,\ Color.red);}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00103}00103\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00106}00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{foreach}\ (var\ lineSegment\ \textcolor{keywordflow}{in}\ lineSegments)}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00107}00107\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{class_ball_movement_a2c6180a5d985ce8c7c39596ab9e5d9a3}{LineSegmentIntersection}}(ballStart,\ ballEnd,\ lineSegment.start,\ lineSegment.end,\ out\ Vector3\ intersectionPoint))}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ball_movement_ac6a63f2cbb61ce14dda95621177ee843}{direction}}\ =\ Vector3.Reflect(\mbox{\hyperlink{class_ball_movement_ac6a63f2cbb61ce14dda95621177ee843}{direction}},\ lineSegment.normal);}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (intersectionPoint.x\ <=\ -\/11f)}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ score1\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ intersectionPoint\ =\ \textcolor{keyword}{new}\ Vector3(0,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ball_movement_ac6a63f2cbb61ce14dda95621177ee843}{direction}}\ =\ \textcolor{keyword}{new}\ Vector3(1,\ \mbox{\hyperlink{_ball_movement_8cs_a832e8f52fca5a678819ec96269dcb532}{Random}}.Range(0,\ 2)\ ==\ 0\ ?\ -\/1\ :\ 1,\ 0);}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (intersectionPoint.x\ >=\ 11f)}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ score2\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ intersectionPoint\ =\ \textcolor{keyword}{new}\ Vector3(0,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_ball_movement_ac6a63f2cbb61ce14dda95621177ee843}{direction}}\ =\ \textcolor{keyword}{new}\ Vector3(-\/1,\ \mbox{\hyperlink{_ball_movement_8cs_a832e8f52fca5a678819ec96269dcb532}{Random}}.Range(0,\ 2)\ ==\ 0\ ?\ -\/1\ :\ 1,\ 0);}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Debug.DrawLine(lineSegment.start,\ lineSegment.end,\ Color.green);}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Debug.DrawLine(\mbox{\hyperlink{class_ball_movement_ab2657ddd68ebf02876c11212145fcfdb}{ball}}.position,\ intersectionPoint,\ Color.blue);}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Çarpışma\ noktasının\ biraz\ ötesine\ yerleştirerek,\ topun\ çarpışma\ noktasında\ sıkışmasını\ önler}}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ distanceToMove\ =\ .1f;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ nextPosition\ =\ intersectionPoint\ +\ (Vector3)lineSegment.normal\ *\ distanceToMove;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Topu\ hareket\ ettir}}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Debug.DrawLine(nextPosition,\ intersectionPoint,\ Color.green);}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00137}00137\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00138}00138\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00139}00139\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00141}00141\ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00142}00142\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Topu\ hareket\ ettir}}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00143}00143\ \ \ \ \ \ \ \ \ ball.position\ =\ nextPosition;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00144}00144\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00146}00146\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ OnDrawGizmosSelected()}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00147}00147\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00148}00148\ \ \ \ \ \ \ \ \ Gizmos.DrawRay(\mbox{\hyperlink{class_ball_movement_ab2657ddd68ebf02876c11212145fcfdb}{ball}}.transform.position,\ \mbox{\hyperlink{class_ball_movement_ac6a63f2cbb61ce14dda95621177ee843}{direction}});}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00149}00149\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00161}\mbox{\hyperlink{struct_ball_movement_1_1_line_segment}{00161}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_ball_movement_1_1_line_segment}{LineSegment}}}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00162}00162\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00163}\mbox{\hyperlink{struct_ball_movement_1_1_line_segment_ab6925c20f22c7ed443f2a1710866c9e5}{00163}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ Vector3\ \mbox{\hyperlink{struct_ball_movement_1_1_line_segment_ab6925c20f22c7ed443f2a1710866c9e5}{start}};}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00164}\mbox{\hyperlink{struct_ball_movement_1_1_line_segment_a69fc40fa8c0df4a8c088a9fdd6c97449}{00164}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ Vector3\ \mbox{\hyperlink{struct_ball_movement_1_1_line_segment_a69fc40fa8c0df4a8c088a9fdd6c97449}{end}};}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00165}\mbox{\hyperlink{struct_ball_movement_1_1_line_segment_a9c4654ac7f753bf2b97cad21ffc4c04c}{00165}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ Vector3\ \mbox{\hyperlink{struct_ball_movement_1_1_line_segment_a9c4654ac7f753bf2b97cad21ffc4c04c}{normal}};}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00167}\mbox{\hyperlink{struct_ball_movement_1_1_line_segment_ad2b567b007687d6235085bfb628f6fe8}{00167}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}\ \mbox{\hyperlink{struct_ball_movement_1_1_line_segment_ad2b567b007687d6235085bfb628f6fe8}{LineSegment}}(Vector3\ \mbox{\hyperlink{struct_ball_movement_1_1_line_segment_ab6925c20f22c7ed443f2a1710866c9e5}{start}},\ Vector3\ \mbox{\hyperlink{struct_ball_movement_1_1_line_segment_a69fc40fa8c0df4a8c088a9fdd6c97449}{end}},\ Vector3\ \mbox{\hyperlink{struct_ball_movement_1_1_line_segment_a9c4654ac7f753bf2b97cad21ffc4c04c}{normal}})}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00168}00168\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ this.start\ =\ \mbox{\hyperlink{struct_ball_movement_1_1_line_segment_ab6925c20f22c7ed443f2a1710866c9e5}{start}};}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ this.end\ =\ \mbox{\hyperlink{struct_ball_movement_1_1_line_segment_a69fc40fa8c0df4a8c088a9fdd6c97449}{end}};}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ this.normal\ =\ \mbox{\hyperlink{struct_ball_movement_1_1_line_segment_a9c4654ac7f753bf2b97cad21ffc4c04c}{normal}};}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00172}00172\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00173}00173\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00174}00174\ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00175}\mbox{\hyperlink{class_ball_movement_a2c6180a5d985ce8c7c39596ab9e5d9a3}{00175}}\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_ball_movement_a2c6180a5d985ce8c7c39596ab9e5d9a3}{LineSegmentIntersection}}(Vector3\ p1,\ Vector3\ p2,\ Vector3\ q1,\ Vector3\ q2,\ out\ Vector3\ intersectionPoint)}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00176}00176\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00177}00177\ \ \ \ \ \ \ \ \ Vector3\ r\ =\ p2\ -\/\ p1;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00178}00178\ \ \ \ \ \ \ \ \ Vector3\ s\ =\ q2\ -\/\ q1;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00180}00180\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ d\ =\ r.x\ *\ s.y\ -\/\ r.y\ *\ s.x;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00181}00181\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ u\ =\ ((q1.x\ -\/\ p1.x)\ *\ r.y\ -\/\ (q1.y\ -\/\ p1.y)\ *\ r.x)\ /\ d;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00182}00182\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ t\ =\ ((q1.x\ -\/\ p1.x)\ *\ s.y\ -\/\ (q1.y\ -\/\ p1.y)\ *\ s.x)\ /\ d;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00183}00183\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((0\ <=\ u\ \&\&\ u\ <=\ 1\ \&\&\ 0\ <=\ t\ \&\&\ t\ <=\ 1))}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00184}00184\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ intersectionPoint\ =\ p1\ +\ t\ *\ r;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00187}00187\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00189}00189\ \ \ \ \ \ \ \ \ intersectionPoint\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00190}00190\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00191}00191\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00192}00192\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00193}00193\ \ \ \ \ \textcolor{keywordtype}{bool}\ LineSegmentIntersectionOriginal(Vector3\ p1,\ Vector3\ p2,\ Vector3\ q1,\ Vector3\ q2,\ out\ Vector3\ intersectionPoint)}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00194}00194\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00195}00195\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ A1\ =\ p2.y\ -\/\ p1.y;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00196}00196\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ B1\ =\ p1.x\ -\/\ p2.x;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00197}00197\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ C1\ =\ A1\ *\ p1.x\ +\ B1\ *\ p1.y;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00198}00198\ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00199}00199\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ A2\ =\ q2.y\ -\/\ q1.y;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00200}00200\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ B2\ =\ q1.x\ -\/\ q2.x;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00201}00201\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ C2\ =\ A2\ *\ q1.x\ +\ B2\ *\ q1.y;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00202}00202\ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00203}00203\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ det\ =\ A1\ *\ B2\ -\/\ A2\ *\ B1;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00204}00204\ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00205}00205\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (Mathf.Abs(det)\ <\ 0.0001f)}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00206}00206\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Çizgiler\ paralelse}}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \ \ intersectionPoint\ =\ Vector3.zero;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00210}00210\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00211}00211\ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00212}00212\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ x\ =\ (B2\ *\ C1\ -\/\ B1\ *\ C2)\ /\ det;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00213}00213\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ y\ =\ (A1\ *\ C2\ -\/\ A2\ *\ C1)\ /\ det;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00214}00214\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Debug.Log(x);}}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00215}00215\ \ \ \ \ \ \ \ \ \textcolor{comment}{//Debug.Log(y);}}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00216}00216\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((x\ >=\ Mathf.Min(p1.x,\ p2.x)\ \&\&\ x\ <=\ Mathf.Max(p1.x,\ p2.x))\ \&\&}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ (y\ >=\ Mathf.Min(p1.y,\ p2.y)\ \&\&\ y\ <=\ Mathf.Max(p1.y,\ p2.y))\ \&\&}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ (x\ >=\ Mathf.Min(q1.x,\ q2.x)\ \&\&\ x\ <=\ Mathf.Max(q1.x,\ q2.x))\ \&\&}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \ \ \ (y\ >=\ Mathf.Min(q1.y,\ q2.y)\ \&\&\ y\ <=\ Mathf.Max(q1.y,\ q2.y)))}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00220}00220\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00221}00221\ \ \ \ \ \ \ \ \ \ \ \ \ intersectionPoint\ =\ \textcolor{keyword}{new}\ Vector3(x,\ y,\ 0);}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00223}00223\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00224}00224\ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00225}00225\ \ \ \ \ \ \ \ \ intersectionPoint\ =\ Vector3.zero;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00226}00226\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00227}00227\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00228}00228\ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00229}\mbox{\hyperlink{class_ball_movement_a5866f553f594be14a85c88de4fcdf36f}{00229}}\ \ \ \ \ \textcolor{keyword}{public}\ Font\ \mbox{\hyperlink{class_ball_movement_a5866f553f594be14a85c88de4fcdf36f}{font}};}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00230}00230\ \ \ \ \ \textcolor{keyword}{private}\ \textcolor{keywordtype}{void}\ OnGUI()}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00231}00231\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00232}00232\ \ \ \ \ \ \ \ \ GUI.skin.font\ =\ \mbox{\hyperlink{class_ball_movement_a5866f553f594be14a85c88de4fcdf36f}{font}};}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00233}00233\ \ \ \ \ \ \ \ \ GUIStyle\ style\ =\ \textcolor{keyword}{new}\ GUIStyle(GUI.skin.label);}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00234}00234\ \ \ \ \ \ \ \ \ style.alignment\ =\ TextAnchor.MiddleCenter;}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00235}00235\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00236}00236\ \ \ \ \ \ \ \ \ GUI.Label(\textcolor{keyword}{new}\ Rect(Screen.width\ /\ 2\ -\/\ 125\ -\/\ 50,\ -\/50,\ 250,\ 250),\ score2.ToString(),\ style);}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00237}00237\ \ \ \ \ \ \ \ \ GUI.Label(\textcolor{keyword}{new}\ Rect(Screen.width\ /\ 2\ -\/\ 125\ +\ 50,\ -\/50,\ 250,\ 250),\ score1.ToString(),\ style);}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00238}00238\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{_ball_movement_8cs_source_l00239}00239\ \}}
+
+\end{DoxyCode}

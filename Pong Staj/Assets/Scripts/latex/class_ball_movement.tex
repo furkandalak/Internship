@@ -1,0 +1,132 @@
+\doxysection{Ball\+Movement Class Reference}
+\hypertarget{class_ball_movement}{}\label{class_ball_movement}\index{BallMovement@{BallMovement}}
+
+
+This Class controls Ball Movement and Segment Intersections.  
+
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_ball_movement_1_1_line_segment}{Line\+Segment}}
+\begin{DoxyCompactList}\small\item\em Calculates two line segmentation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_ball_movement_a2c6180a5d985ce8c7c39596ab9e5d9a3}{Line\+Segment\+Intersection}} (Vector3 p1, Vector3 p2, Vector3 q1, Vector3 q2, out Vector3 intersection\+Point)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Transform \mbox{\hyperlink{class_ball_movement_ab2657ddd68ebf02876c11212145fcfdb}{ball}}
+\item 
+Transform \mbox{\hyperlink{class_ball_movement_afc7bd1ba11daafd6825473d72337f708}{paddle1}}
+\item 
+Transform \mbox{\hyperlink{class_ball_movement_ae6fbc952b54fb915ac79385d0a55ecc0}{paddle2}}
+\item 
+float \mbox{\hyperlink{class_ball_movement_aa33416010b3040ac39e7b02bfa7aa95a}{edge\+Follow}} = 11f
+\item 
+float \mbox{\hyperlink{class_ball_movement_ae5be514e8f3c1b3af767d5a8627c9277}{speed}} = 5f
+\item 
+Vector2 \mbox{\hyperlink{class_ball_movement_ac6a63f2cbb61ce14dda95621177ee843}{direction}}
+\item 
+Font \mbox{\hyperlink{class_ball_movement_a5866f553f594be14a85c88de4fcdf36f}{font}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This Class controls Ball Movement and Segment Intersections. 
+
+Definition at line \mbox{\hyperlink{_ball_movement_8cs_source_l00012}{12}} of file \mbox{\hyperlink{_ball_movement_8cs_source}{Ball\+Movement.\+cs}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_ball_movement_a2c6180a5d985ce8c7c39596ab9e5d9a3}\label{class_ball_movement_a2c6180a5d985ce8c7c39596ab9e5d9a3} 
+\index{BallMovement@{BallMovement}!LineSegmentIntersection@{LineSegmentIntersection}}
+\index{LineSegmentIntersection@{LineSegmentIntersection}!BallMovement@{BallMovement}}
+\doxysubsubsection{\texorpdfstring{LineSegmentIntersection()}{LineSegmentIntersection()}}
+{\footnotesize\ttfamily bool Ball\+Movement.\+Line\+Segment\+Intersection (\begin{DoxyParamCaption}\item[{Vector3}]{p1,  }\item[{Vector3}]{p2,  }\item[{Vector3}]{q1,  }\item[{Vector3}]{q2,  }\item[{out Vector3}]{intersection\+Point }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{_ball_movement_8cs_source_l00175}{175}} of file \mbox{\hyperlink{_ball_movement_8cs_source}{Ball\+Movement.\+cs}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_ball_movement_ab2657ddd68ebf02876c11212145fcfdb}\label{class_ball_movement_ab2657ddd68ebf02876c11212145fcfdb} 
+\index{BallMovement@{BallMovement}!ball@{ball}}
+\index{ball@{ball}!BallMovement@{BallMovement}}
+\doxysubsubsection{\texorpdfstring{ball}{ball}}
+{\footnotesize\ttfamily Transform Ball\+Movement.\+ball}
+
+
+
+Definition at line \mbox{\hyperlink{_ball_movement_8cs_source_l00014}{14}} of file \mbox{\hyperlink{_ball_movement_8cs_source}{Ball\+Movement.\+cs}}.
+
+\Hypertarget{class_ball_movement_ac6a63f2cbb61ce14dda95621177ee843}\label{class_ball_movement_ac6a63f2cbb61ce14dda95621177ee843} 
+\index{BallMovement@{BallMovement}!direction@{direction}}
+\index{direction@{direction}!BallMovement@{BallMovement}}
+\doxysubsubsection{\texorpdfstring{direction}{direction}}
+{\footnotesize\ttfamily Vector2 Ball\+Movement.\+direction}
+
+
+
+Definition at line \mbox{\hyperlink{_ball_movement_8cs_source_l00020}{20}} of file \mbox{\hyperlink{_ball_movement_8cs_source}{Ball\+Movement.\+cs}}.
+
+\Hypertarget{class_ball_movement_aa33416010b3040ac39e7b02bfa7aa95a}\label{class_ball_movement_aa33416010b3040ac39e7b02bfa7aa95a} 
+\index{BallMovement@{BallMovement}!edgeFollow@{edgeFollow}}
+\index{edgeFollow@{edgeFollow}!BallMovement@{BallMovement}}
+\doxysubsubsection{\texorpdfstring{edgeFollow}{edgeFollow}}
+{\footnotesize\ttfamily float Ball\+Movement.\+edge\+Follow = 11f}
+
+
+
+Definition at line \mbox{\hyperlink{_ball_movement_8cs_source_l00018}{18}} of file \mbox{\hyperlink{_ball_movement_8cs_source}{Ball\+Movement.\+cs}}.
+
+\Hypertarget{class_ball_movement_a5866f553f594be14a85c88de4fcdf36f}\label{class_ball_movement_a5866f553f594be14a85c88de4fcdf36f} 
+\index{BallMovement@{BallMovement}!font@{font}}
+\index{font@{font}!BallMovement@{BallMovement}}
+\doxysubsubsection{\texorpdfstring{font}{font}}
+{\footnotesize\ttfamily Font Ball\+Movement.\+font}
+
+
+
+Definition at line \mbox{\hyperlink{_ball_movement_8cs_source_l00229}{229}} of file \mbox{\hyperlink{_ball_movement_8cs_source}{Ball\+Movement.\+cs}}.
+
+\Hypertarget{class_ball_movement_afc7bd1ba11daafd6825473d72337f708}\label{class_ball_movement_afc7bd1ba11daafd6825473d72337f708} 
+\index{BallMovement@{BallMovement}!paddle1@{paddle1}}
+\index{paddle1@{paddle1}!BallMovement@{BallMovement}}
+\doxysubsubsection{\texorpdfstring{paddle1}{paddle1}}
+{\footnotesize\ttfamily Transform Ball\+Movement.\+paddle1}
+
+
+
+Definition at line \mbox{\hyperlink{_ball_movement_8cs_source_l00015}{15}} of file \mbox{\hyperlink{_ball_movement_8cs_source}{Ball\+Movement.\+cs}}.
+
+\Hypertarget{class_ball_movement_ae6fbc952b54fb915ac79385d0a55ecc0}\label{class_ball_movement_ae6fbc952b54fb915ac79385d0a55ecc0} 
+\index{BallMovement@{BallMovement}!paddle2@{paddle2}}
+\index{paddle2@{paddle2}!BallMovement@{BallMovement}}
+\doxysubsubsection{\texorpdfstring{paddle2}{paddle2}}
+{\footnotesize\ttfamily Transform Ball\+Movement.\+paddle2}
+
+
+
+Definition at line \mbox{\hyperlink{_ball_movement_8cs_source_l00016}{16}} of file \mbox{\hyperlink{_ball_movement_8cs_source}{Ball\+Movement.\+cs}}.
+
+\Hypertarget{class_ball_movement_ae5be514e8f3c1b3af767d5a8627c9277}\label{class_ball_movement_ae5be514e8f3c1b3af767d5a8627c9277} 
+\index{BallMovement@{BallMovement}!speed@{speed}}
+\index{speed@{speed}!BallMovement@{BallMovement}}
+\doxysubsubsection{\texorpdfstring{speed}{speed}}
+{\footnotesize\ttfamily float Ball\+Movement.\+speed = 5f}
+
+
+
+Definition at line \mbox{\hyperlink{_ball_movement_8cs_source_l00019}{19}} of file \mbox{\hyperlink{_ball_movement_8cs_source}{Ball\+Movement.\+cs}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/dalakgames/\+Desktop/\+Furkan\+Intern/\+Internship/\+Pong Staj/\+Assets/\+Scripts/\mbox{\hyperlink{_ball_movement_8cs}{Ball\+Movement.\+cs}}\end{DoxyCompactItemize}
